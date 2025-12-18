@@ -1,0 +1,63 @@
+START PROGRAM
+
+LOOP
+    Tampilkan menu utama
+    Input pilihan user
+
+    WHILE input pilihan bukan angka ATAU pilihan < 1 ATAU pilihan > 3
+        Tampilkan pesan error
+        Input ulang pilihan
+    END WHILE
+
+    IF pilihan == 1 THEN
+        Tampilkan form input suhu
+        Input nilai suhu
+
+        IF input suhu bukan angka THEN
+            Tampilkan pesan error
+            Kembali ke menu utama
+        ELSE
+            IF suhu < 35 THEN
+                Status = "Hipotermia"
+                Saran = "Segera cari bantuan medis"
+            ELSE IF suhu >= 35 AND suhu <= 37 THEN
+                Status = "Normal"
+                Saran = "Tetap jaga pola makan dan tidur"
+            ELSE IF suhu > 37 AND suhu <= 38 THEN
+                Status = "Demam Ringan"
+                Saran = "Perbanyak minum air putih"
+            ELSE IF suhu > 38 AND suhu <= 39 THEN
+                Status = "Demam Sedang"
+                Saran = "Konsumsi obat demam dan istirahat"
+            ELSE
+                Status = "Demam Tinggi"
+                Saran = "Segera ke dokter"
+            END IF
+
+            Tampilkan status dan saran kesehatan
+
+            LOOP
+                Tanyakan "Cek lagi? (y/n)"
+                Input jawaban
+
+                IF jawaban == 'y' THEN
+                    Ulangi input suhu
+                ELSE IF jawaban == 'n' THEN
+                    Kembali ke menu utama
+                ELSE
+                    Tampilkan pesan input tidak valid
+                END IF
+            END LOOP
+        END IF
+
+    ELSE IF pilihan == 2 THEN
+        Tampilkan tabel kategori suhu
+
+    ELSE IF pilihan == 3 THEN
+        Tampilkan pesan terima kasih
+        STOP PROGRAM
+    END IF
+
+END LOOP
+
+END PROGRAM
